@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Add a Car</a><br />
+<table>
+    <tr>
+        <th>Maker</th>
+        <th>Model</th>
+        <th>Year</th>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="cars : ${cars}">
+        <td th:text="${cars.carmaker}"></td>
+        <td th:text="${cars.carmodel}"></td>
+        <td th:text="${cars.caryear}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${cars.id})}">Update</a>
+            <a th:href="@{/delete/{id}(id=${cars.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
